@@ -1,0 +1,11 @@
+﻿.jumbobg {
+    background-image: url(../images/jumbotron.png);
+    height: 300px
+}
+
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    color: white;
+    text-align: center;
+}
