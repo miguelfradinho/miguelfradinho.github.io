@@ -27,10 +27,10 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pesquisa <span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pesquisa <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-header">Pessoas</li>
-                            <li><a href="">Atores</a></li>
+                            <li><a data-toggle="modal" data-target="#myModal">Atores</a></li>
                             <li><a href="">Diretores</a></li>
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Filmes</li>
@@ -56,7 +56,28 @@
         </div>
     </div>
 
-    <script src="Scripts/jquery-1.9.1.min.js"></script>
+
+    <div id="myModal" class="modal fade" role="dialog">
+     <div class="modal-dialog modal-lg">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+    </div>
+    </div>
+
+
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/knockout-3.4.0.js"></script>
 </body>
