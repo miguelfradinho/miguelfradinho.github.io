@@ -7,6 +7,9 @@ $(function () {
 		self.pesquisaAtoresTexto = ko.observable("");
 		self.atoresNumero = ko.observable(null);
 		self.atores = ko.observableArray();
+		self.ator1 = ko.observableArray();
+		self.ator2 = ko.observableArray();
+		self.ator3 = ko.observableArray();
 
 		self.pesquisaDiretoresTexto = ko.observable("");
 		self.diretoresNumero = ko.observable(null);
@@ -33,9 +36,27 @@ $(function () {
 		getAtores = function () {
 			$.getJSON("http://192.168.160.39/api/Actors/Count", function(data) {
 				self.atoresNumero(data);
+
+				var numAtores = data;
+				var ator1id = Math.floor(Math.random()*numAtores)+1
+				var ator2id = Math.floor(Math.random()*numAtores)+1
+				var ator3id = Math.floor(Math.random()*numAtores)+1
+				$.getJSON("http://192.168.160.39/api/Actors/" + ator1id, function(data) {
+					self.ator1(data);
+					
+				});
+				$.getJSON("http://192.168.160.39/api/Actors/" + ator2id, function(data) {
+					self.ator2(data);
+					console.log(data);
+				});
+				$.getJSON("http://192.168.160.39/api/Actors/" + ator3id, function(data) {
+					self.ator3(data);
+					console.log(data);
+				});
 			});
 			$.getJSON("http://192.168.160.39/api/Actors", function(data) {
 				self.atores(data);
+				console.log(data)
 			});
 		};
 		pesquisaAtores = function () {
@@ -182,3 +203,5 @@ $(function () {
 	};
 	ko.applyBindings(new ViewModel());
 });
+
+// Fim KO
