@@ -73,29 +73,7 @@
     </div>
 </div>
 
-<!-- Filmes do Ator Aleatorio -->
 
-<div id="modalFilmesHighlight" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body" data-bind="foreach: ator_aleatorio">
-                    <div class="row" data-bind="foreach: actor_movies">
-                        <div class="col-md-5 col-md-offset-2">
-                            <i class="fa fa-film"></i> <a data-bind="text: movie_title"></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a data-bind="text: imdb_score + '/10'"></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a data-bind="text: title_year"></a>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 <!-- pesquisa de atores -->
 
@@ -271,8 +249,25 @@
         </div>
     </div>
 
+<!-- Filmes do Ator Aleatorio -->
 
-
+<div id="modalFilmesHighlight" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Filmes: </h4>
+            </div>
+            <div class="modal-body" data-bind="foreach: ator_aleatorio">
+                <div class="row" data-bind="foreach: actor_movies">
+                    <div class="col-md-10 col-md-offset-1">
+                        <i class="fa fa-film"></i> <a data-bind="text: title_year + '&nbsp;&nbsp;&nbsp;&nbsp;' + imdb_score + '/10&nbsp;&nbsp;&nbsp;&nbsp;' + movie_title"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- JavaScript e JavaScript e JavaScript... -->
 
     <script src="Scripts/jquery-3.1.1.min.js"></script>
