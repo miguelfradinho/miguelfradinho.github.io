@@ -62,7 +62,7 @@
     </div>
 
 <!-- highlight de um ator e um filme aleatorio-->
-
+<h1 style="text-align: center">Sugestões:</h1>
 <div class="container col-lg-6 col-md-6 col-sm-12 col-xs-12" data-bind="foreach: ator_aleatorio">
     <div style="min-width: 1px;min-height:1px;height:200px;width:200px;border-radius:50%;display:block;margin:auto;margin-top:30px" data-bind="style: { background: 'url(' + photo + ') 50% 50% no-repeat' }"></div>
     <br/>
@@ -72,6 +72,16 @@
         <a class="btn btn-danger" data-toggle="modal" data-target="#modalFilmesHighlight">Filmes</a>
     </div>
 </div>
+
+<div class="container col-lg-6 col-md-6 col-sm-12 col-xs-12" data-bind="foreach: filme_aleatorio">
+    <div style="min-width: 1px;min-height:1px;height:200px;width:200px;border-radius:50%;display:block;margin:auto;margin-top:30px" data-bind="style: { background: 'url(' + poster + ') 50% 50% no-repeat' }"></div>
+    <br/>
+    <div style="text-align: center">
+        <a data-bind="attr: { href: '../Movie/' + movieID }"><h1 data-bind="text: movie_title"></h1></a>
+        <h2 data-bind="text: imdb_score + '/10'"></h2>
+        <h2 data-bind="text: title_year"></h2>
+    </div>
+</div>      
 
 
 
@@ -268,6 +278,7 @@
         </div>
     </div>
 </div>
+
 <!-- JavaScript e JavaScript e JavaScript... -->
 
     <script src="Scripts/jquery-3.1.1.min.js"></script>

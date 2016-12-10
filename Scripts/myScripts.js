@@ -16,6 +16,7 @@ $(function () {
 		self.pesquisaFilmesTexto = ko.observable("");
 		self.filmesNumero = ko.observable(null);
 		self.filmes = ko.observableArray();
+		self.filme_aleatorio = ko.observableArray();
 
 		self.pesquisaPaisesTexto = ko.observable("");
 		self.paisesNumero = ko.observable(null);
@@ -38,9 +39,16 @@ $(function () {
 				var numAtores = data;
 				var ator1id = Math.floor(Math.random()*numAtores)+1
 				$.getJSON("http://192.168.160.39/api/Actors/" + ator1id, function(data) {
+					if (data.lenght == 0) {
+						getAtores;
+					}
+					else {
+					if (data[0].photo == '/images/nophoto.png') {
+						data[0].photo = './images/nophoto.png'
+					};
 					self.ator_aleatorio(data);
-					console.log(data);
-					
+					console.log(data)
+					};
 				});
 			});
 			$.getJSON("http://192.168.160.39/api/Actors", function(data) {
@@ -92,6 +100,20 @@ $(function () {
 	getFilmes = function () {
 			$.getJSON("http://192.168.160.39/api/Movies/Count", function(data) {
 				self.filmesNumero(data);
+				var numFilmes = data;
+				var filme1id = Math.floor(Math.random()*numFilmes)+1
+				$.getJSON("http://192.168.160.39/api/Movies/" + filme1id, function(data) {
+					if (data.lenght == 0) {
+						getFilmes;
+					}
+					else {
+					if (data[0].poster == '/images/noposter.png') {
+						data[0].poster = './images/nophoto.png'
+					};
+					self.filme_aleatorio(data);
+					console.log(data)
+					};
+				});
 			});
 			$.getJSON("http://192.168.160.39/api/Movies", function(data) {
 				self.filmes(data);
