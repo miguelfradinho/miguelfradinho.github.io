@@ -207,7 +207,7 @@ $(function () {
 			});
 			};
 		};
-		getLinguas();
+			;
 
 
 	};
@@ -215,3 +215,9 @@ $(function () {
 });
 
 // Fim KO
+
+function sobreScroll() {
+	document.querySelector('#sobre').scrollIntoView({ 
+  behavior: 'smooth' 
+})
+}
