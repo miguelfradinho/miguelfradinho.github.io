@@ -108,7 +108,7 @@ $(function () {
 					}
 					else {
 					if (data[0].poster == '/images/noposter.png') {
-						data[0].poster = './images/nophoto.png'
+						data[0].poster = './images/noposter.png'
 					};
 					self.filme_aleatorio(data);
 					console.log(data)
