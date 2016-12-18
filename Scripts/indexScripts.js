@@ -30,6 +30,14 @@ $(function () {
 		self.linguasNumero = ko.observable(null);
 		self.linguas = ko.observableArray();
 
+		var actorSort = $("#ordenacaoAct").val()
+		$("#ordenacaoAct").change(function() {
+			actorSort = $("#ordenacaoAct").val();
+			if (self.pesquisaAtoresTexto().length == 0) {
+				getAtores()
+			};
+		});
+
 // Funções para Atores
 
 		getAtores = function () {
@@ -38,6 +46,7 @@ $(function () {
 
 				var numAtores = data;
 				var ator1id = Math.floor(Math.random()*numAtores)+1
+
 				$.getJSON("http://192.168.160.39/api/Actors/" + ator1id, function(data) {
 					if (data.lenght == 0) {
 						getAtores;
@@ -47,22 +56,32 @@ $(function () {
 						data[0].photo = './images/nophoto.png'
 					};
 					self.ator_aleatorio(data);
-					console.log(data)
 					};
 				});
 			});
-			$.getJSON("http://192.168.160.39/api/Actors", function(data) {
-				self.atores(data);
-			});
+			if (actorSort == "ALF") {
+				$.getJSON("http://192.168.160.39/api/Actors", function(data) {
+					self.atores(data);
+				});	
+			}
+			else if (actorSort == "LIK") {
+				$.getJSON("http://192.168.160.39/api/Actors/Likes", function(data) {
+					self.atores(data);
+				});	
+			}
+			else { console.log("BEEP BOOP ERROR")};
 		};
 		pesquisaAtores = function () {
 			if (self.pesquisaAtoresTexto().length >= 3) {
 			$.getJSON("http://192.168.160.39/api/Actors/Search/" + self.pesquisaAtoresTexto(), function(data) {
 				self.atores(data);
 			});
-
+			}
+			else if (self.pesquisaAtoresTexto().length >= 1) {
+				$("#ordenacaoAct").prop("disabled", true);
 			}
 			else if (self.pesquisaAtoresTexto().length == 0) {
+				$("#ordenacaoAct").prop("disabled", false);
 				$.getJSON("http://192.168.160.39/api/Actors", function(data) {
 				self.atores(data);
 			});
@@ -215,3 +234,5 @@ $(function () {
 });
 
 // Fim KO
+
+
