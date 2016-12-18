@@ -27,10 +27,7 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">Home</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">Sobre</a></li>
+                   <li class="active"><a href="index.html">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -39,31 +36,25 @@
         <div data-bind = "foreach: actor">
             <!-- >= 768px-->
             <div class="hidden-xs col-sm-12 col-md-12 col-lg-12">
-                <div class="col-sm-4 col-md-3 col-lg-3 center-block">
-                    <img class="img-responsive center-block" data-bind="attr: {src: photo, title:'Just a pic'}">
+                <div class="col-sm-4 col-md-3 col-lg-3 center-block" >
+                    <img class="img-responsive" style="border-radius: 6px; margin:0.6em; float:right; align-content: right; align-items: right;" data-bind="attr: {src: photo, title:'Just a pic'}">
                 </div>
-                <div class="col-sm-8 col-md-9 col-lg-9 text-center">   
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 "> 
+                <div class="col-sm-8 col-md-9 col-lg-9">   
+                    <div class="col-sm-6 col-md-7 col-lg-7" style="padding-right: 8px;"> 
                         <h2 data-bind="text: actorName">
                         </h2>
                     </div>
-                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                        <h4>
-                        <div data-bind="html: actorFacebookLikes"> 
-                        </div>
-                        </h4>
+                    <div class="col-sm-3 col-md-3 col-lg-3 pull-left">
+                        <h1 data-bind = "html: actorFacebookLikes" style="font-size: 1.13em; margin-bottom: 0px;"></h1>
                     </div>
-                    <div class="col-xs-6 col-sm-3 col-md-2 colg-lg-2 ">
-                        <h4>
-                        <div data-bind="text: 'ID Ator: ' + actorID"></div>
-                        </h4>
+                    <div class="col-sm-3 col-md-2 colg-lg-2 ">
+                        <h1 data-bind = "text: 'ID do Ator: ' + actorID" style="font-size: 1.1em; margin-bottom: 0px;"></h1>
                     </div>
                 </div>
-                <div class="col-sm-8 col-md-8 col-lg-9 center-block">
-                    <table class="table table-responsive table-striped text-center">
+                <div class="col-sm-8 col-md-8 col-lg-9 center-block table-responsive" style="padding: 0px; border-radius: 0.4em;">
+                    <table class="table table-striped text-center">
                         <thead>
                             <tr>
-                                <th class="text-center">ID</th>
                                 <th class="text-center">Title</th>
                                 <th class="text-center">Year</th>
                                 <th class="text-center">OrderIn</th>
@@ -73,16 +64,15 @@
                         </thead>
                         <tbody data-bind = "foreach: actor_movies">
                             <tr>
-                                <td data-bind = "text: movieID">
-                                </td>
-                                <td data-bind = "text: movie_title">
+                                <td>
+                                    <a data-bind = "text: movie_title, attr: {href: './filme.html?id=' + movieID}"></a>
                                 </td>
                                 <td data-bind = "text: title_year">
                                 </td>
                                 <td data-bind = "text: actorOrderInMovie">
                                 </td>
                                 <td>
-                                    <a data-bind="attr{ href: movie_imdb_link}">IMDB</a>
+                                    <a data-bind="attr: { href: movie_imdb_link}">IMDB</a>
                                 </td>
                                 <td data-bind = "text: imdb_score">
                                 </td>
@@ -92,56 +82,92 @@
                 </div>
             </div>
             <!-- < 768px-->
-            <div class="visible-xs col-xs-12" style="padding-bottom: 2rem">
-                <div class="col-xs-8">
-                    <div class="col-xs-4">
-                        <h1 data-bind="text: actorName" style="font-size: 1.75rem">
+            <div class = "visible-xs col-xs-12" style="padding-bottom: 2rem">
+                <div class="col-xs-7">
+                    <div class="col-xs-12">
+                        <h1 data-bind="text: actorName">
                         </h1>                        
                     </div>
-                    <div class="col-xs-2" data-bind = "html: actorFacebookLikes">
-
+                    <div class="col-xs-12">
+                        <h1 data-bind = "html: actorFacebookLikes" style="font-size: 1.28em; margin-bottom: 0px;"></h1>
                     </div>
-                    <div class="col-xs-2">
-                        
+                    <div class="col-xs-12">
+                        <h1 data-bind = "text: 'ID do Ator: ' + actorID" style="font-size: 1.28em">
+                        </h1>
                     </div> 
                 </div>      
-                <div class="col-xs-4">
-                    <img class="img-responsive" style="float:right; align-content: right; align-items: right;" data-bind="attr: {src: photo, title:'Just a pic'}">
+                <div class="col-xs-5 ">
+                    <img class="img-responsive" style="border-radius: 6px; margin:0.6em;" data-bind="attr: {src: photo, title:'Just a pic'}">
                 </div>       
+                <div class="col-xs-12  table-responsive" style="padding: 0em; border-radius: 0.35em;">
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Title</th>
+                                <th class="text-center">Year</th>
+                                <th class="text-center">OrderIn</th>
+                                <th class="text-center">IMDB</th>
+                                <th class="text-center">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind = "foreach: actor_movies">
+                            <tr>
+                                <td style="padding-left: 4px; padding-right: 4px;">
+                                    <a data-bind = "text: movie_title, attr: {href: './filme.html?id=' + movieID}"></a>
+                                </td>
+                                <td style="padding-left: 4px; padding-right: 4px;" data-bind = "text: title_year">
+                                </td>
+                                <td style="padding-left: 4px; padding-right: 4px;" data-bind = "text: actorOrderInMovie">
+                                </td>
+                                <td style="padding-left: 4px; padding-right: 4px;">
+                                    <a data-bind="attr: { href: movie_imdb_link}">IMDB</a>
+                                </td style="padding-left: 4px; padding-right: 4px;">
+                                <td data-bind = "text: imdb_score">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="visible-xs col-xs">
-                <table class="table table-responsive table-striped text-center">
-                    <thead>
-                        <tr>
-                            <th class="text-center">ID</th>
-                            <th class="text-center">Title</th>
-                            <th class="text-center">Year</th>
-                            <th class="text-center">OrderIn</th>
-                            <th class="text-center">IMDB</th>
-                            <th class="text-center">Score</th>
-                        </tr>
-                    </thead>
-                    <tbody data-bind = "foreach: actor_movies">
-                        <tr>
-                            <td data-bind = "text: movieID">
-                            </td>
-                            <td data-bind = "text: movie_title">
-                            </td>
-                            <td data-bind = "text: title_year">
-                            </td>
-                            <td data-bind = "text: actorOrderInMovie">
-                            </td>
-                            <td>
-                                <a data-bind="attr{ href: movie_imdb_link}">IMDB</a>
-                            </td>
-                            <td data-bind = "text: imdb_score">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="hidden-xs col-sm-12 col-md-12 col-lg-12">
+                <div class="visible-lg col-lg-1">
+                </div>
+                <div class="col-sm-4 col-md-5 col-lg-5 text-center" data-bind="foreach: previousActor">
+                    <div class="pull-left">
+                        <img class="img-responsive" style="border-radius: 0.8em; margin:0.6em;" data-bind="attr: {src: photo, title:'Just a pic'}">
+                        <a data-bind="attr:{href: '?id='+ actorID}, text: actorName"></a>
+                    </div>
+                </div>
+                <div class="hidden-lg col-sm-4 col-md-2">
+                </div>
+                <div class="col-sm-4 col-md-5 col-lg-5 text-center" data-bind="foreach: nextActor">
+                    <div class="pull-right">
+                        <img class="img-responsive" style="border-radius: 0.8em; margin:0.4em;" data-bind="attr: {src: photo, title:'Just a pic'}">
+                        <a data-bind="attr:{href: '?id='+ actorID}, text: actorName"></a>
+                    </div>
+                </div>
+                <div class="visible-lg col-lg-1">
+                    
+                </div>
+            </div> 
+            <div class="visible-xs col-xs-12">
+                <div class="col-xs-5 text-center" data-bind="foreach: previousActor">
+                    <div class="pull-left">
+                    <img class="img-responsive" style="border-radius: 0.8em; margin:0.6em;" data-bind="attr: {src: photo, title:'Just a pic'}">
+                    <a data-bind="attr:{href: '?id='+ actorID}, text: actorName"></a>
+                    </div>
+                </div>
+                <div class="col-xs-2"></div>
+                <div class="col-xs-5 text-center" data-bind="foreach: nextActor">
+                    <div class="pull-right">
+                    <img class="img-responsive" style="border-radius: 0.8em; margin:0.6em;" data-bind="attr: {src: photo, title:'Just a pic'}">
+                    <a data-bind="attr:{href: '?id='+ actorID}, text: actorName"></a>
+                    </div>
+                </div>
             </div>
-            
-        </div>       
+        </div>     
     </div>
 <!-- JavaScript e JavaScript e JavaScript... -->
 

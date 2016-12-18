@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IMDb 5000+</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/myStyle.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+
+<!-- Barra do Topo -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-film" aria-hidden="true"></i> IMDb5000+</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                <ul class="nav navbar-nav">
+                   <li class="active"><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="padding-top: 4em">
+        <div data-bind = "foreach: language">
+            <!-- >= 768px-->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">   
+                    <h1>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div data-bind="text: languageName"></div>
+                            <small>ID: <strong data-bind="text: languageID"></strong></small>
+                            <small>Filmes: <strong data-bind="text: moviesCount"></strong></small>
+                        </div> 
+                    </h1>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h2 class="text-center"> Filmes em <span data-bind="text: languageName"></span> </h2>
+                    <div data-bind="foreach: movies" class="text-center">
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <img data-bind="attr: {src: './images/noposter.png'}" class ="center-block  img-responsive">
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="white-space: nowrap; overflow: hidden;">
+                            <a data-bind="attr:{href: './filme.html?id=' + movieID}, text: movie_title"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- JavaScript e JavaScript e JavaScript... -->
+
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/knockout-3.4.0.js"></script>
+    <script src="Scripts/language.js"></script>
+    
+</body>
+</html>
