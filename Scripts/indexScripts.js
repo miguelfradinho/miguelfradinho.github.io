@@ -38,6 +38,25 @@ $(function () {
 			};
 		});
 
+		var directorSort = $("#ordenacaoDir").val()
+		$("#ordenacaoDir").change(function() {
+			directorSort = $("#ordenacaoDir").val();
+			if (self.pesquisaDiretoresTexto().length == 0) {
+				getDiretores()
+			};
+		});
+
+		var movieSort = $("#ordenacaoFil").val()
+		$("#ordenacaoFil").change(function() {
+			movieSort = $("#ordenacaoFil").val();
+			if (self.pesquisaFilmesTexto().length == 0) {
+				getFilmes()
+			};
+		});
+
+		var randomMovieLock = 0
+		var randomActorLock = 0
+
 // Funções para Atores
 
 		getAtores = function () {
@@ -46,18 +65,20 @@ $(function () {
 
 				var numAtores = data;
 				var ator1id = Math.floor(Math.random()*numAtores)+1
-
-				$.getJSON("http://192.168.160.39/api/Actors/" + ator1id, function(data) {
-					if (data.lenght == 0) {
-						getAtores;
-					}
-					else {
-					if (data[0].photo == '/images/nophoto.png') {
-						data[0].photo = './images/nophoto.png'
-					};
-					self.ator_aleatorio(data);
-					};
-				});
+				if (randomActorLock != 1) {
+					$.getJSON("http://192.168.160.39/api/Actors/" + ator1id, function(data) {
+						if (data.lenght == 0) {
+							getAtores;
+						}
+						else {
+						randomActorLock = 1
+						if (data[0].photo == '/images/nophoto.png') {
+							data[0].photo = './images/nophoto.png'
+						};
+						self.ator_aleatorio(data);
+						};
+					});
+				};
 			});
 			if (actorSort == "ALF") {
 				$.getJSON("http://192.168.160.39/api/Actors", function(data) {
@@ -95,18 +116,29 @@ $(function () {
 			$.getJSON("http://192.168.160.39/api/Directors/Count", function(data) {
 				self.diretoresNumero(data);
 			});
-			$.getJSON("http://192.168.160.39/api/Directors", function(data) {
-				self.diretores(data);
-			});
+			if (directorSort == "ALF") {
+				$.getJSON("http://192.168.160.39/api/Directors", function(data) {
+					self.diretores(data);
+				});	
+			}
+			else if (directorSort == "LIK") {
+				$.getJSON("http://192.168.160.39/api/Directors/Likes", function(data) {
+					self.diretores(data);
+				});	
+			}
+			else { console.log("BEEP BOOP ERROR")};
 		};
 		pesquisaDiretores = function () {
 			if (self.pesquisaDiretoresTexto().length >= 3) {
 			$.getJSON("http://192.168.160.39/api/Directors/Search/" + self.pesquisaDiretoresTexto(), function(data) {
 				self.diretores(data);
 			});
-
+			}
+			else if (self.pesquisaDiretoresTexto().length >= 1) {
+				$("#ordenacaoDir").prop("disabled", true);
 			}
 			else if (self.pesquisaDiretoresTexto().length == 0) {
+				$("#ordenacaoDir").prop("disabled", false);
 				$.getJSON("http://192.168.160.39/api/Directors", function(data) {
 				self.diretores(data);
 			});
@@ -121,31 +153,51 @@ $(function () {
 				self.filmesNumero(data);
 				var numFilmes = data;
 				var filme1id = Math.floor(Math.random()*numFilmes)+1
-				$.getJSON("http://192.168.160.39/api/Movies/" + filme1id, function(data) {
-					if (data.lenght == 0) {
-						getFilmes;
-					}
-					else {
-					if (data[0].poster == '/images/noposter.png') {
-						data[0].poster = './images/noposter.png'
-					};
-					self.filme_aleatorio(data);
-					console.log(data)
-					};
-				});
+				if (randomMovieLock != 1) {
+					$.getJSON("http://192.168.160.39/api/Movies/" + filme1id, function(data) {
+						if (data.lenght == 0) {
+							getFilmes;
+						}
+						else {
+						randomMovieLock = 1
+						if (data[0].poster == '/images/noposter.png') {
+							data[0].poster = './images/noposter.png'
+						};
+						self.filme_aleatorio(data);
+						console.log(data)
+						};
+					});
+				};
 			});
-			$.getJSON("http://192.168.160.39/api/Movies", function(data) {
-				self.filmes(data);
-			});
+			if (movieSort == "ALF") {
+				$.getJSON("http://192.168.160.39/api/Movies", function(data) {
+					self.filmes(data);
+				});	
+			}
+			else if (movieSort == "BUD") {
+				$.getJSON("http://192.168.160.39/api/Movies/Budget", function(data) {
+					self.filmes(data);
+				});	
+			}
+
+			else if (movieSort == "GRO") {
+				$.getJSON("http://192.168.160.39/api/Movies/Gross", function(data) {
+					self.filmes(data);
+				});	
+			}
+			else { console.log("BEEP BOOP ERROR")};
 		};
 		pesquisaFilmes = function () {
 			if (self.pesquisaFilmesTexto().length >= 3) {
 			$.getJSON("http://192.168.160.39/api/Movies/Search/" + self.pesquisaFilmesTexto(), function(data) {
 				self.filmes(data);
 			});
-
+			}
+			else if (self.pesquisaFilmesTexto().length >= 1) {
+				$("#ordenacaoFil").prop("disabled", true);
 			}
 			else if (self.pesquisaFilmesTexto().length == 0) {
+				$("#ordenacaoFil").prop("disabled", false);
 				$.getJSON("http://192.168.160.39/api/Movies", function(data) {
 				self.filmes(data);
 			});
