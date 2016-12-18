@@ -17,7 +17,7 @@ $("document").ready(function() {
 				if (data[0].photo === '/images/nophoto.png') {
 					data[0].photo = './images/nophoto.png';
 				};
-				data[0].directorFacebookLikes = data[0].directorFacebookLikes + " <i class='fa fa-thumbs-o-up' aria-hidden='true'></i>"
+				data[0].directorFacebookLikes = "Facebook Likes: "+ data[0].directorFacebookLikes + " <i class='fa fa-thumbs-o-up' aria-hidden='true'></i>"
 				self.director(data);
 				console.log(data);
 		})};
