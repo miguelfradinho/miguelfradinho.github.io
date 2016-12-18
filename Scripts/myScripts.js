@@ -208,16 +208,10 @@ $(function () {
 			};
 		};
 			;
-
+		getLinguas();
 
 	};
 	ko.applyBindings(new ViewModel());
 });
 
 // Fim KO
-
-function sobreScroll() {
-	document.querySelector('#sobre').scrollIntoView({ 
-  behavior: 'smooth' 
-})
-}
