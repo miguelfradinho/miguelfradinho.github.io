@@ -130,6 +130,7 @@
                 </div>
                 <div class="col-sm-4 col-md-5 col-lg-5 text-center" data-bind="foreach: previousDirector">
                     <div class="pull-left">
+                        <div class="h5"> Anterior</div>
                         <img class="img-responsive" style="border-radius: 0.8em; margin:0.6em;" data-bind="attr: {src: photo, title:'Just a pic'}">
                         <a data-bind="attr:{href: '?id='+ directorID}, text: directorName"></a>
                     </div>
@@ -138,6 +139,7 @@
                 </div>
                 <div class="col-sm-4 col-md-5 col-lg-5 text-center" data-bind="foreach: nextDirector">
                     <div class="pull-right">
+                    <div class="h5"> Próximo</div>
                         <img class="img-responsive" style="border-radius: 0.8em; margin:0.4em;" data-bind="attr: {src: photo, title:'Just a pic'}">
                         <a data-bind="attr:{href: '?id='+ directorID}, text: directorName"></a>
                     </div>
@@ -149,6 +151,7 @@
             <div class="visible-xs col-xs-12">
                 <div class="col-xs-5 text-center" data-bind="foreach: previousDirector">
                     <div class="pull-left">
+                    <div class="h5"> Anterior</div>
                     <img class="img-responsive" style="border-radius: 0.8em; margin:0.6em;" data-bind="attr: {src: photo, title:'Just a pic'}">
                     <a data-bind="attr:{href: '?id='+ directorID}, text: directorName"></a>
                     </div>
@@ -156,6 +159,7 @@
                 <div class="col-xs-2"></div>
                 <div class="col-xs-5 text-center" data-bind="foreach: nextDirector">
                     <div class="pull-right">
+                    <div class="h5"> Próximo</div>
                     <img class="img-responsive" style="border-radius: 0.8em; margin:0.6em;" data-bind="attr: {src: photo, title:'Just a pic'}">
                     <a data-bind="attr:{href: '?id='+ directorID}, text: directorName"></a>
                     </div>
