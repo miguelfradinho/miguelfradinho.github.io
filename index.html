@@ -69,7 +69,7 @@
     <div style="min-width: 1px;min-height:1px;height:200px;width:200px;border-radius:50%;display:block;margin:auto;margin-top:30px" data-bind="style: { background: 'url(' + photo + ') 50% 50% no-repeat' }"></div>
     <br/>
     <div style="text-align: center">
-        <a data-bind="attr: { href: './ator.html?id=' + actorID }"><h1 data-bind="text: actorName"></h1></a>
+        <a data-bind="attr: { href: './ator.html#' + actorID }"><h1 data-bind="text: actorName"></h1></a>
         <h2 data-bind="text: actorFacebookLikes + ' Likes'"></h2>
         <a class="btn btn-danger" data-toggle="modal" data-target="#modalFilmesHighlight">Filmes</a>
     </div>
@@ -79,7 +79,7 @@
     <div style="min-width: 1px;min-height:1px;height:200px;width:200px;border-radius:50%;display:block;margin:auto;margin-top:30px" data-bind="style: { background: 'url(' + poster + ') 50% 50% no-repeat' }"></div>
     <br/>
     <div style="text-align: center">
-        <a data-bind="attr: { href: './filme.html?id=' + movieID }"><h1 data-bind="text: movie_title"></h1></a>
+        <a data-bind="attr: { href: './filme.html#' + movieID }"><h1 data-bind="text: movie_title"></h1></a>
         <h2 data-bind="text: imdb_score + '/10'"></h2>
         <h2 data-bind="text: title_year"></h2>
     </div>
@@ -136,7 +136,7 @@
                     <br/>
                     <div class="row" data-bind="foreach: atores">
                         <div class="col-md-6">
-                            <div><i class="fa fa-user"></i> <a data-bind="text: actorName, attr: { href: './ator.html?id=' + actorID }"></a></div>
+                            <div><i class="fa fa-user"></i> <a data-bind="text: actorName, attr: { href: './ator.html#' + actorID }"></a></div>
                             </div>
                         </div>
                 </div>
@@ -165,7 +165,7 @@
                     <br/>
                     <div class="row" data-bind="foreach: diretores">
                         <div class="col-md-6">
-                            <div><i class="fa fa-user-secret"></i> <a data-bind="text: directorName, attr: { href: './diretor.html?id=' + directorID }"></a></div>
+                            <div><i class="fa fa-user-secret"></i> <a data-bind="text: directorName, attr: { href: './diretor.html#' + directorID }"></a></div>
                             </div>
                         </div>
                 </div>
@@ -196,7 +196,7 @@
                     <br/>
                     <div class="row" data-bind="foreach: filmes">
                         <div class="col-md-6">
-                            <div><i class="fa fa-film"></i> <a data-bind="text: movie_title, attr: { href: './filme.html?id=' + movieID }"></a></div>
+                            <div><i class="fa fa-film"></i> <a data-bind="text: movie_title, attr: { href: './filme.html#' + movieID }"></a></div>
                             </div>
                         </div>
                 </div>
@@ -225,7 +225,7 @@
                     <br/>
                     <div class="row" data-bind="foreach: paises">
                         <div class="col-md-6">
-                            <div><i class="fa fa-globe"></i> <a data-bind="text: countryName, attr: { href: './pais.html?id=' + countryID }"></a></div>
+                            <div><i class="fa fa-globe"></i> <a data-bind="text: countryName, attr: { href: './pais.html#' + countryID }"></a></div>
                             </div>
                         </div>
                 </div>
@@ -254,7 +254,7 @@
                     <br/>
                     <div class="row" data-bind="foreach: generos">
                         <div class="col-md-6">
-                            <div><i class="fa fa-rocket"></i> <a data-bind="text: genreName, attr: { href: './genero.html?id=' + genreID }"></a></div>
+                            <div><i class="fa fa-rocket"></i> <a data-bind="text: genreName, attr: { href: './genero.html#' + genreID }"></a></div>
                             </div>
                         </div>
                 </div>
@@ -283,7 +283,7 @@
                     <br/>
                     <div class="row" data-bind="foreach: linguas">
                         <div class="col-md-6">
-                            <div><i class="fa fa-language"></i> <a data-bind="text: languageName, attr: { href: './lingua.html?id=' + languageID }"></a></div>
+                            <div><i class="fa fa-language"></i> <a data-bind="text: languageName, attr: { href: './lingua.html#' + languageID }"></a></div>
                             </div>
                         </div>
                 </div>
@@ -306,7 +306,7 @@
             <div class="modal-body" data-bind="foreach: ator_aleatorio">
                 <div class="row" data-bind="foreach: actor_movies">
                     <div class="col-md-10 col-md-offset-1">
-                        <i class="fa fa-film"></i> <a data-bind="text: title_year + '&nbsp;&nbsp;&nbsp;&nbsp;' + imdb_score + '/10&nbsp;&nbsp;&nbsp;&nbsp;' + movie_title, attr: { href: './movie.html?id=' + movieID }"></a>
+                        <i class="fa fa-film"></i> <a data-bind="text: title_year + '&nbsp;&nbsp;&nbsp;&nbsp;' + imdb_score + '/10&nbsp;&nbsp;&nbsp;&nbsp;' + movie_title, attr: { href: './movie.html#' + movieID }"></a>
                     </div>
                 </div>
             </div>

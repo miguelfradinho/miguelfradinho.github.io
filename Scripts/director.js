@@ -1,5 +1,5 @@
 $("document").ready(function() {
-	var location = window.location.href.split("?id=");
+	var location = window.location.href.split("#");
 	var api_base = "http://192.168.160.39/api/Directors/";
 	var viewDirectors = new function(){
 		var self = this;
