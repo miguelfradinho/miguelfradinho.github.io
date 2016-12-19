@@ -25,7 +25,7 @@ $("document").ready(function() {
 		getActor();
 		getPreviousActor = function() {
 			if (actorID != 1){
-				var final_link = api_base + (parseInt(actorID-1)).toString();;
+				var final_link = api_base + (parseInt(actorID-1)).toString();
 				console.log(final_link);
 				$.getJSON(final_link, function(data) {
 					if (data[0].photo === '/images/nophoto.png') {
