@@ -59,42 +59,42 @@
                         <div class="h1 panel" style="font-size: 1.25em; margin-top: 0.8em; box-shadow: 7px 5px 15px 0px rgba(50, 50, 50, 0.27);">
                             <div class="panel-heading" >
                                 <div data-bind="if: content_rating" >
-                                    <div class="col-sm-5 col-md-4 col-lg-4" style="text-align:left; padding: 0px;" data-bind = "html: movie_facebook_likes">
+                                    <div class="col-sm-5 col-md-4 col-lg-4" style="text-align:center; padding: 0px;" data-bind = "html: movie_facebook_likes">
                                     </div>
-                                    <div class="col-sm-3 col-md-4 col-lg-4" style="text-align:right; padding: 0px 0px 0px 0px;" data-bind = "text: 'Duração: '+ duration + 'm'">
+                                    <div class="col-sm-3 col-md-4 col-lg-4" style="text-align: center; padding: 0px;" data-bind = "text: 'Duração:&nbsp;'+ duration + 'm'">
                                     </div>
-                                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:right; padding: 0px 0px 0px 7.5px;" data-bind = "html: 'Contéudo: '+ '<strong>' + content_rating + '</strong>'">  
+                                    <div class="col-sm-4 col-md-4 col-lg-4" style="text-align:right; padding: 0px 0px 0px 7.5px;" data-bind = "html: 'Contéudo:&nbsp;'+ '<strong>' + content_rating + '</strong>'">  
                                     </div>
                                 </div>
                                 <div data-bind="ifnot: content_rating">
                                      <div class="col-sm-7 col-md-6 col-lg-6" style="text-align:left; padding: 0px;" data-bind = "html: movie_facebook_likes">
                                     </div>
-                                    <div class="col-sm-4 col-md-6 col-lg-6" style="text-align:right; padding: 0px 0px 0px 0px;" data-bind = "text: 'Duração: '+ duration + 'm'">
+                                    <div class="col-sm-4 col-md-6 col-lg-6" style="text-align:right; padding: 0px 0px 0px 0px;" data-bind = "text: 'Duração:&nbsp;'+ duration + 'm'">
                                     </div>
                                 </div>
                             </div>
                             <div class="panel-body">
                             <div class="h6 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 4.5px;">
-                                <span> Géneros:&nbsp;</span>
+                                <span>&nbsp;Géneros:&nbsp;</span>
                                 <div data-bind ="foreach: genres" style="display: inline-block;">
                                     <span><a data-bind="attr:{href: './genero.html?id=' + genreID}, text: genreName"></a>&nbsp;</span>
                                 </div>
                             </div>
                             <div class="h6 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 4.5px;" >
-                                <span> Palavras-Chave:&nbsp;</span>
+                                <span>&nbsp;Palavras-Chave:&nbsp;</span>
                                 <div data-bind ="text: plot_keywords" style="display: inline-block;">
                                 </div>
                             </div>
                             <div class="h6 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 4.5px;">
-                                <span>País: <a data-bind="attr:{href: './pais.html?id=' + countryID}, text: countryName"></a>&nbsp;</span>
+                                <span>País:&nbsp;<a data-bind="attr:{href: './pais.html?id=' + countryID}, text: countryName"></a>&nbsp;</span>
                             </div>
                             <div class="h6 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 4.5px;">
-                                <span>Língua: <a data-bind="attr:{href: './lingua.html?id=' + languageID}, text: languageName"></a>&nbsp;</span>
+                                <span>Língua:&nbsp;<a data-bind="attr:{href: './lingua.html?id=' + languageID}, text: languageName"></a>&nbsp;</span>
                             </div>
                             <div class="h6 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 4.5px; align-content: left; padding: 0px;" >
                                 <div class="col-sm-4 col-md-3 col-lg-2">
-                                    <div data-bind="if: gross"> Lucro (bruto): </div>
-                                    <div data-bind="if: budget"> Orçamento: </div>
+                                    <div data-bind="if: gross">&nbsp;Lucro&nbsp;(bruto):&nbsp;</div>
+                                    <div data-bind="if: budget">&nbsp;Or&ccedil;amento:&nbsp;</div>
                                 </div>
                                 <div class="col-sm-6 col-md-7 col-lg-8" style="text-align: left;">
                                     <div data-bind="if: gross">
@@ -114,10 +114,6 @@
             <div class = "visible-xs col-xs-12">
                 <div class="col-xs-12" style="padding: 0px;">
                     <div class="h2 col-xs-8">
-                        <div class="col-xs-6" style="font-size: 0.5em; text-align: left" data-bind="text: 'ID:' + movieID">
-                        </div>
-                        <div class="col-xs-6" style="text-align:right; font-size:0.6em;"> <a data-bind="attr: {href:movie_imdb_link}">IMDB </a> <strong data-bind="text: imdb_score"></strong>
-                        </div><br/>
                         <div class="col-xs-12" style="padding: 0px; font-size: 0.907em;"> 
                             <div class="col-xs-12 text-center">
                                 <div data-bind="text: movie_title" style="display: inline-block;"></div>
@@ -125,52 +121,57 @@
                             </div> 
                             <div class="col-xs-12 text-center" data-bind="if: directorName" style="font-size: 0.8em"><a data-bind="attr:{href: './diretor.html?id=' + directorID}, text: directorName"></a>&nbsp;
                             </div>
+                            <div class="col-xs-12" style="text-align:center; font-size:0.6em;"> <a data-bind="attr: {href:movie_imdb_link}">IMDB </a> <strong data-bind="text: imdb_score"></strong>
+                        </div><br/>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <img class="img-responsive" style="border-radius: 6px; margin:0.6em; float:right; align-content: right; align-items: right;" data-bind="attr: {src: poster, title:'Movie Poster'}">
+                        <div class="h4 text-center">
+                            <small data-bind="text: 'ID:' + movieID"></small>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xs-12">
                     <div class="h1 panel" style="font-size: 1.25em; margin-top: 0.8em; box-shadow: 7px 5px 15px 0px rgba(50, 50, 50, 0.27);">
                         <div class="panel-heading" style="font-size: 0.9em;">
                             <div data-bind="if: content_rating" >
-                                <div class="col-xs-4" style="text-align:left; padding: 0px;" data-bind = "html: movie_facebook_likes">
+                                <div class="col-xs-2" style="padding: 0px;" data-bind = "html: movie_facebook_likes">
                                 </div>
-                                <div class="col-xs-4" style=" padding: 0px;" data-bind = "text: 'Duração: '+ duration + 'm'">
+                                <div class="col-xs-5" style=" padding: 0px;" data-bind = "text: 'Duração:&nbsp;'+ duration + 'm'">
                                 </div>
-                                <div class="col-xs-4" style="text-align:right; padding: 0px;" data-bind = "html: 'Contéudo: '+ '<strong>' + content_rating + '</strong>'">
+                                <div class="col-xs-5" style="text-align:center; padding: 0px;" data-bind = "html: 'Contéudo:&nbsp;'+ '<strong>' + content_rating + '</strong>'">
                                 </div>
                             </div>
                             <div data-bind="ifnot: content_rating">
                                 <div class="col-xs-6" style="text-align:left; padding: 0px;" data-bind = "html: movie_facebook_likes">
                                 </div>
-                                <div class="col-xs-6" style=" padding: 0px;" data-bind = "text: 'Duração: '+ duration + 'm'">
+                                <div class="col-xs-6" style=" padding: 0px;" data-bind = "text: 'Duração:&nbsp;'+ duration + 'm'">
                                 </div>
                             </div>
                         </div>
                         <div class="panel-body" style="margin-top: 0.2em;">
                             <div class="h5" >
-                                <span> Géneros:&nbsp;</span>
+                                <span>&nbsp;Géneros:&nbsp;</span>
                                 <div data-bind ="foreach: genres" style="display: inline-block;">
                                     <span><a data-bind="attr:{href: './genero.html?id=' + genreID}, text: genreName"></a>&nbsp;</span>
                                 </div>
                             </div>
                             <div class="h5">
-                                <span> Palavras-Chave:&nbsp;</span>
+                                <span>&nbsp;Palavras-Chave:&nbsp;</span>
                                 <div data-bind ="text: plot_keywords" style="display: inline-block;">
                                 </div>
                             </div>
                             <div class="h5">
-                                <span>País: <a data-bind="attr:{href: './pais.html?id=' + countryID}, text: countryName"></a>&nbsp;</span>
+                                <span>País:&nbsp;<a data-bind="attr:{href: './pais.html?id=' + countryID}, text: countryName"></a>&nbsp;</span>
                             </div>
                             <div class="h5">
-                                <span>Língua: <a data-bind="attr:{href: './lingua.html?id=' + languageID}, text: languageName"></a>&nbsp;</span>
+                                <span>Língua:&nbsp;<a data-bind="attr:{href: './lingua.html?id=' + languageID}, text: languageName"></a>&nbsp;</span>
                             </div>
                             <div class="h6" style=" align-content: left; padding: 0px;" >
                                 <div class="col-xs-5" style="padding-left: 0px;">
-                                    <div data-bind="if: gross"> Lucro (bruto): </div>
-                                    <div data-bind="if: budget"> Orçamento: </div>
+                                    <div data-bind="if: gross">&nbsp;Lucro&nbsp;(bruto):&nbsp;</div>
+                                    <div data-bind="if: budget">&nbsp;Or&ccedil;amento:&nbsp;</div>
                                 </div>
                                 <div class="col-xs-7" style="text-align: left;padding-left: 0px;">
                                     <div data-bind="if: gross">

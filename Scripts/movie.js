@@ -15,7 +15,7 @@ $("document").ready(function() {
 				if (data[0].title_year == null){
 					data[0].title_year = "";
 				}
-				data[0].movie_facebook_likes = "Facebook Likes: " + data[0].movie_facebook_likes + " <i class='fa fa-thumbs-o-up' aria-hidden='true'></i>"
+				data[0].movie_facebook_likes = data[0].movie_facebook_likes + " <i class='fa fa-thumbs-o-up' aria-hidden='true'></i>"
 				/*for (var i = 0; i < data[0].movie_actors.length; i++){
 					var link = "http://192.168.160.39/api/Actors/" + data[0].movie_actors[i].actorID;
 					var pot = i;
